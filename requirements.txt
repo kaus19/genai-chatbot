@@ -5,3 +5,7 @@ python-dotenv
 streamlit
 requests
 pydantic
+chromadb
+langchain
+pypdf
+chroma-migrate

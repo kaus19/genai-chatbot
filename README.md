@@ -1,19 +1,22 @@
-# AI Story Generator
+# GenAI Fact Generator
 
-An interactive web application that generates stories using OpenAI's GPT-4 model. Built with FastAPI backend and Streamlit frontend.
+An AI-powered fact generation system with document storage and retrieval capabilities. Built with FastAPI backend and Streamlit frontend, utilizing OpenAI's GPT models and ChromaDB for document storage.
 
 ## 🚀 Features
 
-- Interactive web interface for story generation
-- Real-time AI-powered story creation
+- Interactive web interface for fact generation
+- Document storage and retrieval using ChromaDB
+- RAG (Retrieval Augmented Generation) capabilities
+- Real-time AI-powered fact creation
+- Document management interface
 - Error handling and user feedback
-- Simple and intuitive UI
 
 ## 🛠️ Technology Stack
 
 - **Backend**: FastAPI
 - **Frontend**: Streamlit
 - **AI Model**: OpenAI GPT-4
+- **Vector Database**: ChromaDB
 - **Language**: Python 3.12+
 
 ## 📋 Prerequisites
@@ -21,6 +24,24 @@ An interactive web application that generates stories using OpenAI's GPT-4 model
 - Python 3.12 or higher
 - OpenAI API key
 - pip (Python package manager)
+
+## 📁 Project Structure
+
+```
+genai-chatbot/
+├── backend/
+│   ├── __init__.py
+│   ├── main.py              # FastAPI application
+│   └── knowledge_base.py    # ChromaDB integration
+├── frontend/
+│   └── streamlit_app.py     # Streamlit UI
+├── data/                    # Created automatically
+│   └── chromadb/           # Vector database storage
+├── .env                    # Environment variables
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
 
 ## ⚙️ Installation
 
@@ -35,7 +56,7 @@ cd genai-chatbot
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the project root:
+3. Create a `.env` file:
 ```bash
 OPENAI_API_KEY=your_api_key_here
 ```
@@ -52,31 +73,29 @@ uvicorn backend.main:app --reload
 streamlit run frontend/streamlit_app.py
 ```
 
-3. Open your browser and navigate to:
+3. Access the applications:
 - Frontend: http://localhost:8501
-- API docs: http://localhost:8000/docs
+- API documentation: http://localhost:8000/docs
 
-## 📁 Project Structure
+## 💡 Usage
 
-```
-genai-chatbot/
-├── backend/
-│   ├── __init__.py
-│   └── main.py
-├── frontend/
-│   └── streamlit_app.py
-├── .env
-├── requirements.txt
-└── README.md
-```
+1. **Document Management**
+   - Upload documents through the web interface
+   - View stored documents
+   - Add metadata to documents
 
-## 🤝 Contributing
+2. **Fact Generation**
+   - Enter a prompt
+   - System retrieves relevant context from stored documents
+   - Generates facts using both the prompt and context
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## 🔧 Development
+
+The application uses:
+- ChromaDB for vector storage and retrieval
+- FastAPI for the backend API
+- Streamlit for the user interface
+- OpenAI's GPT models for generation
 
 ## 📝 License
 
@@ -84,9 +103,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👥 Authors
 
-- Kaustubh Maloo - Initial work
+- Kaustubh Maloo (@kaus19)
 
 ## 🙏 Acknowledgments
 
-- OpenAI for providing the GPT-4 API
+- OpenAI for providing the GPT API
+- ChromaDB team for the vector database
 - FastAPI and Streamlit communities
