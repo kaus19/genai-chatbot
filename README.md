@@ -1,15 +1,24 @@
-# GenAI Fact Generator
+# GenAI Chatbot
 
-An AI-powered fact generation system with document storage and retrieval capabilities. Built with FastAPI backend and Streamlit frontend, utilizing OpenAI's GPT models and ChromaDB for document storage.
+An AI-powered chatbot with fact generation and document storage capabilities. Built with FastAPI backend and Streamlit frontend, utilizing OpenAI's GPT-4 and ChromaDB for knowledge management.
 
 ## 🚀 Features
 
-- Interactive web interface for fact generation
+### 💬 Interactive Chat
+- Real-time chat interface with AI assistant
+- Context-aware responses using RAG (Retrieval Augmented Generation)
+- Persistent chat history using ChromaDB
+- Message threading and conversation memory
+
+### 📚 Document Management
 - Document storage and retrieval using ChromaDB
-- RAG (Retrieval Augmented Generation) capabilities
-- Real-time AI-powered fact creation
-- Document management interface
-- Error handling and user feedback
+- Metadata support for documents
+- Document search and querying
+
+### 🎯 Fact Generation
+- AI-powered fact generation
+- Context-enhanced responses
+- Document-based knowledge integration
 
 ## 🛠️ Technology Stack
 
@@ -31,12 +40,12 @@ An AI-powered fact generation system with document storage and retrieval capabil
 genai-chatbot/
 ├── backend/
 │   ├── __init__.py
-│   ├── main.py              # FastAPI application
-│   └── knowledge_base.py    # ChromaDB integration
+│   ├── main.py              # FastAPI endpoints including chat
+│   └── knowledge_base.py    # ChromaDB integration & chat history
 ├── frontend/
-│   └── streamlit_app.py     # Streamlit UI
+│   └── streamlit_app.py     # Streamlit UI with chat interface
 ├── data/                    # Created automatically
-│   └── chromadb/           # Vector database storage
+│   └── chromadb/           # Vector database & chat storage
 ├── .env                    # Environment variables
 ├── .gitignore
 ├── requirements.txt
@@ -74,39 +83,37 @@ streamlit run frontend/streamlit_app.py
 ```
 
 3. Access the applications:
-- Frontend: http://localhost:8501
+- Frontend UI: http://localhost:8501
 - API documentation: http://localhost:8000/docs
 
 ## 💡 Usage
 
-1. **Document Management**
-   - Upload documents through the web interface
-   - View stored documents
-   - Add metadata to documents
+### Chat Interface
+1. Navigate to the "Chat" tab
+2. Type your message in the input field
+3. The AI will respond using:
+   - Relevant context from uploaded documents
+   - Previous conversation history
+   - General knowledge from GPT-4
 
-2. **Fact Generation**
-   - Enter a prompt
-   - System retrieves relevant context from stored documents
-   - Generates facts using both the prompt and context
+### Document Management
+1. Go to the "Documents" tab
+2. Upload documents with optional metadata
+3. View and manage stored documents
+
+### Fact Generation
+1. Select the "Fact Generator" tab
+2. Enter a topic or question
+3. Receive AI-generated facts based on stored knowledge
 
 ## 🔧 Development
 
 The application uses:
-- ChromaDB for vector storage and retrieval
-- FastAPI for the backend API
-- Streamlit for the user interface
-- OpenAI's GPT models for generation
+- ChromaDB for vector storage and chat history
+- FastAPI for RESTful API endpoints
+- Streamlit for interactive UI
+- OpenAI's GPT-4 for intelligent responses
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👥 Authors
-
-- Kaustubh Maloo (@kaus19)
-
-## 🙏 Acknowledgments
-
-- OpenAI for providing the GPT API
-- ChromaDB team for the vector database
-- FastAPI and Streamlit communities
